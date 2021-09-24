@@ -11270,12 +11270,32 @@ textarea.form-control-lg {
   }
 }
 @font-face {
-  font-family: "Belligerent Madness";
-  src: url("../fonts/Belligerent-Madness.ttf.woff") format("woff"), url("../fonts/Belligerent-Madness.ttf.eot") format("eot");
+  font-family: "Belligerent-Madness";
+  src: url("../fonts/Belligerent-Madness.ttf.woff") format("woff"), url("../fonts/Belligerent-Madness.ttf.svg#Belligerent-Madness") format("svg"), url("../fonts/Belligerent-Madness.ttf.eot"), url("../fonts/Belligerent-Madness.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
 }
+* {
+  font-family: "Belligerent-Madness";
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background-color: inherit;
+  padding: 0;
+}
+button:focus {
+  color: white;
+  background-color: #c9b2ff;
+}
+
 .header {
   display: flex;
-  background-color: #cab2ff;
+  background-color: #f2ceff;
 }
 
 .logo-orinoco {
@@ -11304,4 +11324,11 @@ textarea.form-control-lg {
   .logo-basket {
     max-width: 25px;
   }
+}
+
+.oriteddies {
+  border: 2px solid black;
+  border-radius: 10px;
+  box-sizing: content-box;
+  box-shadow: 0 0 10px #555555;
 }/*# sourceMappingURL=style.css.map */
