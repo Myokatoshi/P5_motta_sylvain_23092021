@@ -12,6 +12,7 @@
 
 * {
     font-family: 'Belligerent-Madness';
+    box-sizing: border-box;
 }
 
 a, a:hover {
@@ -22,9 +23,11 @@ a, a:hover {
 button {
     background-color: inherit;
     padding: 0;
-    &:focus {
+    transition: 300ms ease-in-out;
+    &:focus, &:hover {
         color: white;
         background-color: #c9b2ff;
+        transition: 300ms ease-in-out;
     }
 }
 
@@ -55,11 +58,57 @@ button {
     }
 }
 
-
-
 .oriteddies {
     border: 2px solid black;
     border-radius: 10px;
-    box-sizing: content-box;
     box-shadow: 0 0 10px #555555;
+    margin: 20px 0 20px 0;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+}
+
+.article {
+    display: flex;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #555555;
+    transition: 250ms ease-in-out;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        border: 4px solid #f2ceff;
+        transition: 300ms ease-in-out;
+    }
+    &_picture {
+        max-width: 30%;
+        border: 3px solid #c9b2ff;
+        border-radius: 15px;
+        margin: 20px;
+        @media screen and (max-width: 768px) {
+            max-width: 50%;
+        }
+        @media screen and (max-width:572px) {
+            max-width: 75%;
+        }
+    }
+    @media screen and (max-width: 572px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.product-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.footer {
+    background-color: #f2ceff;
 }

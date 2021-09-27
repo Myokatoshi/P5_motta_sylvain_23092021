@@ -7,7 +7,7 @@
 })()
 
 function getarticles() {
-    return fectch("https://localhost:3000/api/teddies")
+    return fectch("http://localhost:3000/api/teddies")
     .then(function(httpbodyResponse) {
         return httpbodyResponse.json()
     })
