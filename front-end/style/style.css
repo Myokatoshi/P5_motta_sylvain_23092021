@@ -11337,27 +11337,33 @@ button:focus, button:hover {
 }
 
 .section {
+  min-height: 600px;
   display: flex;
   flex-direction: column;
 }
 
 .article {
-  display: none;
+  display: flex;
   position: relative;
   border: 2px solid black;
   border-radius: 15px;
   box-shadow: 0 0 10px #555555;
-  transition: 250ms ease-in-out;
+  transition: 300ms ease-in-out;
   align-items: center;
   justify-content: center;
 }
 .article:hover {
-  border: 4px solid #f2ceff;
+  border-color: #f2ceff;
   transition: 300ms ease-in-out;
 }
 .article_infos {
   padding: 1.5rem;
   padding-left: 0;
+}
+@media screen and (max-width: 768px) {
+  .article_infos {
+    padding-left: 1.5rem;
+  }
 }
 .article_picture {
   max-width: 30%;
