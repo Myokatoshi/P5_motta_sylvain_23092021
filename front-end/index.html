@@ -10,29 +10,30 @@
 </head>
 <body>
     <header class="header p-3">
-        <div class="logo-box col-11"><a href=""><img class="logo-orinoco" src="images/logo.png" alt="logo Orinoco" role="link" aria-label="page d'accueil Orinoco"></a></div>
+        <div class="logo-box col-11"><a href="index.html"><img class="logo-orinoco" src="images/logo.png" alt="logo Orinoco" role="link" aria-label="page d'accueil Orinoco"></a></div>
         <div class="basket-box col-1 py-2 py-sm-3"><a href="basket.html" class="col-lg-3"><img class="logo-basket" src="images/basket.png" alt="panier de commande" role="link" aria-label="panier de commande"></a></div>
     </header>
     
     <main class="container">
-        <button class="oriteddies text-center p-1 col-md-4 col-12" onclick="getArticles"><h1>OriTeddies</h1></button>
-        <section class="section my-3">
+        <button class="oriteddies text-center p-1 col-md-4 col-12" id="btn-oriteddies"><h1 class="m-0">OriTeddies</h1></button>
+        <section class="section my-3" id="section_article">
 
             <article class="article my-3">
                 <a class="product-link" href="customisation.html?type=teddies&id=5be9c8541c9d440000665243"aria-label="Page du produit"></a>
-                <img class="article_picture" src="http://localhost:3000/images/teddy_1.jpg" alt="image de l'ours en peluche Norbert" title="ours en peluche norbert">
-                <div class="p-3">
-                    <h2>Norbert</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <img class="article_picture" id="teddy_imageUrl" alt="image de l'ours en peluche Norbert" title="ours en peluche norbert">
+                <div class="article_infos">
+                    <h2 id="teddy_name"></h2>
+                    <p id="teddy_description"></p>
+                    <p id="teddy_price"></p>
                 </div>
             </article>
             
             <article class="article my-3">
                 <a class="product-link" href="customisation.html?type=teddies&id=5be9c8541c9d440000665243"aria-label="Page du produit"></a>
-                <div><img class="article_picture" src="http://localhost:3000/images/teddy_2.jpg" alt="image de l'ours en peluche Norbert" title="ours en peluche norbert"></div>
+                <img class="article_picture" src="http://localhost:3000/images/teddy_2.jpg" alt="image de l'ours en peluche Norbert" title="ours en peluche norbert">
                 <div class="p-3">
-                    <h2>Arnold</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h2></h2>
+                    <p></p>
                 </div>
             </article>
 
@@ -40,8 +41,8 @@
                 <a class="product-link" href="customisation.html?type=teddies&id=5be9c8541c9d440000665243"aria-label="Page du produit"></a>
                 <img class="article_picture" src="http://localhost:3000/images/teddy_3.jpg" alt="image de l'ours en peluche Norbert" title="ours en peluche norbert">
                 <div class="p-3">
-                    <h2>Lenny and Carl</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h2></h2>
+                    <p></p>
                 </div>
             </article>
 
@@ -49,8 +50,8 @@
                 <a class="product-link" href="customisation.html?type=teddies&id=5be9c8541c9d440000665243"aria-label="Page du produit"></a>
                 <img class="article_picture" src="http://localhost:3000/images/teddy_4.jpg" alt="image de l'ours en peluche Norbert" title="ours en peluche norbert">
                 <div class="p-3">
-                    <h2>Gustave</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h2></h2>
+                    <p></p>
                 </div>
             </article>
 
@@ -58,8 +59,8 @@
                 <a class="product-link" href="customisation.html?type=teddies&id=5be9c8541c9d440000665243"aria-label="Page du produit"></a>
                 <img class="article_picture" src="http://localhost:3000/images/teddy_5.jpg" alt="image de l'ours en peluche Norbert" title="ours en peluche norbert">
                 <div class="p-3">
-                    <h2>Garfunkel</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h2></h2>
+                    <p></p>
                 </div>
             </article>
         </section>        
@@ -74,5 +75,6 @@
             <a href=""><span class="fa fa-mail icon-md"></span></a>
         </div>       
     </footer>
+    <script src="js/products.js"></script>
 </body>
 </html>
