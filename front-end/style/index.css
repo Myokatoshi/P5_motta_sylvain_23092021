@@ -11285,6 +11285,14 @@ a, a:hover {
   color: inherit;
 }
 
+.product-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 button {
   background-color: inherit;
   padding: 0;
@@ -11325,4 +11333,73 @@ button:focus, button:hover {
 
 .footer {
   background-color: #f2ceff;
-}/*# sourceMappingURL=style.css.map */
+}
+
+.oriteddies {
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #555555;
+  margin: 20px 0 20px 0;
+}
+
+#section_article {
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.article {
+  display: flex;
+  position: relative;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #555555;
+  transition: 300ms ease-in-out;
+  align-items: center;
+  justify-content: center;
+}
+.article:hover {
+  border-color: #f2ceff;
+  transition: 300ms ease-in-out;
+}
+.article_infos {
+  padding: 1.5rem;
+  padding-left: 0;
+  font-size: 20px;
+}
+@media screen and (max-width: 1200px) {
+  .article_infos {
+    max-height: 180px;
+    overflow: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .article_infos {
+    padding-left: 1.5rem;
+  }
+}
+.article_picture {
+  max-width: 30%;
+  border: 3px solid #c9b2ff;
+  border-radius: 15px;
+  margin: 20px;
+}
+@media screen and (max-width: 768px) {
+  .article_picture {
+    max-width: 75%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .article {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.product-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=index.css.map */
