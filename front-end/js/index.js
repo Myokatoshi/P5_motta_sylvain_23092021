@@ -1,24 +1,41 @@
-$('.oriteddies').on('click', function() {
-    $('#section_article').html('Ca charge...');
-    $.ajax({
-        url: "http://localhost:3000/api/teddies",
-        context: document.body
-      }).done(function(data) {
-        $('#section_article').html('');
-        $.each(data, function(i, item) {
-            $('#section_article').append('<article class="article my-3"></article>'); 
-            $('#section_article article:last-child').append('<a class="product-link" href="product.html?type=teddies&id=' + item._id + '" aria-label="Page du produit"></a>');            
-            $('#section_article article:last-child').append('<img src="' + item.imageUrl + '" class="article_picture teddy_imageUrl" alt="ours en peluche ' + item.name + '" title="ours en peluche ' + item.name + '"></img>'); 
-            $('#section_article article:last-child').append('<div class="article_infos"></div>'); 
-            $('#section_article article:last-child div.article_infos').append('<h2 class="teddy_name">' + item.name + '</h2>'); 
-            $('#section_article article:last-child div.article_infos').append('<p class="teddy_description">' + item.description + '</p>'); 
-            $('#section_article article:last-child div.article_infos').append('<p class="teddy_variations">Disponible en : </p>');
-            $(item.colors).each(function(j, sitem){
-                if(j > 0) $('#section_article article:last-child div.article_infos .teddy_variations').append(' / ');
-                $('#section_article article:last-child div.article_infos .teddy_variations').append(sitem);
-            });
-            $('#section_article article:last-child div.article_infos').append('<p class="teddy_price">' + (item.price/100) + ' &euro;</p>'); 
-          });
-      });
-});
+document.onload = () => {
+    fetch("http://localhost:3000/api/teddies")
+    .then(reponse  => reponse.json())
+    .then(data => {
+        //data.forEach((i, item) => {
+            const main = document.getElementById("container"); 
+            const section = document.createElement("section");
+            /*section.class = "section my-3";
+            section.id = "section_article";
+            const article = document.createElement("article");
+            article.class = "article my-3";
+            const link = document.createElement("a");
+            link.class = "product-link";
+            link.href = "product.html?type=teddies&id=" + item._id;
+            link.ariaLabel = "Page du produit";
+            const img = document.createElement("img");
+            img.class = "article_picture teddy_imageUrl";
+            img.src = item.imageUrl;
+            img.alt = "ours en peluche" + item.name;
+            const divInfos = document.createElement("div");
+            divInfos.class = "article_infos";
+            const h2Infos = document.createElement("h2");
+            h2Infos.class = "teddy_name";
+            h2Infos.textContent = item.name;
+            const pDescription = document.createElement("p");
+            pDescription.class = "teddy_description";
+            pDescription.textContent = item.description;
+            const pVariations = document.createElement("p");
+            pVariations.class = "teddy_variations";
+            pVariations.textContent = "Disponible en : ";
+            const pPrice = document.createElement("p")
+            pPrice.class = "teddy_price";
+            pPrice.textContent = item.price/100;*/
+
+            main.appendChild(section);
+
+        //});
+
+    });
+}
 

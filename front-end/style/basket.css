@@ -11270,8 +11270,8 @@ textarea.form-control-lg {
   }
 }
 @font-face {
-  font-family: "Belligerent-Madness";
-  src: url("../fonts/Belligerent-Madness.ttf.woff") format("woff"), url("../fonts/Belligerent-Madness.ttf.svg#Belligerent-Madness") format("svg"), url("../fonts/Belligerent-Madness.ttf.eot"), url("../fonts/Belligerent-Madness.ttf.eot?#iefix") format("embedded-opentype");
+  font-family: "OpenSans";
+  src: url("../fonts/OpenSans-VariableFont_wdth,wght.ttf");
   font-weight: normal;
   font-style: normal;
 }
