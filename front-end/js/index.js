@@ -2,11 +2,8 @@ window.onload = () => {
     fetch("http://localhost:3000/api/teddies")
     .then(reponse  => reponse.json())
     .then(data => {
-        data.forEach((i, item) => {
-            const main = document.getElementsByClassName("container"); 
+        data.forEach((i, item) => { 
             const section = document.getElementById("section_article");
-            section.className = "section my-3";
-            section.idName = "section_article";
             const article = document.createElement("article");
             article.className = "article my-3";
             const link = document.createElement("a");
@@ -17,6 +14,7 @@ window.onload = () => {
             img.className = "article_picture";
             img.src = i.imageUrl;
             img.alt = "ours en peluche " + i.name;
+            img.title = "ours en peluche " + i.name;
             const divInfos = document.createElement("div");
             divInfos.className = "article_infos";
             const h2Infos = document.createElement("h2");

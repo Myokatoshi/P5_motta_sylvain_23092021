@@ -86,7 +86,7 @@
         transition: 300ms ease-in-out;
     }
     &_image {
-        width: 100%;
+        max-width: 100%;
         border: 3px solid #c9b2ff;
         box-shadow: 0 0 10px #555555;
         border-radius: 20px;
