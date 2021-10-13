@@ -1,8 +1,11 @@
 window.onload = () => {
     fetch("http://localhost:3000/api/teddies")
     .then(reponse  => reponse.json())
+    .catch((_error) => {
+        alert("la connexion avec l'API n'a pas pu se faire. Verifiez la connexion du serveur sur le terminal avec la commande 'node server'.")
+    })
     .then(data => {
-        data.forEach((i, item) => { 
+        data.forEach((i, _item) => { 
             const section = document.getElementById("section_article");
             const article = document.createElement("article");
             article.className = "article my-3";
@@ -52,6 +55,6 @@ window.onload = () => {
             
         });
 
-    });
+    });    
 }
 
