@@ -3,7 +3,7 @@
  * @param (string) className
  * @returns (HTMLElement)
  */
- function createDivWithClass(className) {
+ function createArticleWithClass(className) {
     let article = document.createElement('article');
     article.setAttribute('class', className);
     return article;
@@ -25,7 +25,7 @@ function createDivWithClass(className) {
  * @param (string) className
  * @returns (HTMLElement)
  */
- function createDivWithClass(className) {
+ function createPWithClass(className) {
     let p = document.createElement('p');
     p.setAttribute('class', className);
     return p;
@@ -36,7 +36,7 @@ function createDivWithClass(className) {
  * @param (string) className
  * @returns (HTMLElement)
  */
- function createDivWithClass(className) {
+ function createAWithClass(className) {
     let a = document.createElement('a');
     a.setAttribute('class', className);
     a.href = "product.html?type=teddies&id=" + i._id;
@@ -49,7 +49,7 @@ function createDivWithClass(className) {
  * @param (string) className
  * @returns (HTMLElement)
  */
-function createDivWithClass(className) {
+function createImgWithClass(className) {
     let img = document.createElement('img');
     img.setAttribute('class', className);
     img.src = i.imageUrl;
@@ -63,7 +63,7 @@ function createDivWithClass(className) {
  * @param (string) className
  * @returns (HTMLElement)
  */
- function createDivWithClass(className) {
+ function createH2WithClass(className) {
     let h2 = document.createElement('h2');
     h2.setAttribute('class', className);
     h2.textContent = i.name;
@@ -75,7 +75,7 @@ function createDivWithClass(className) {
  * @param (string) className
  * @returns (HTMLElement)
  */
- function createDivWithClass(className) {
+ function createH3WithClass(className) {
     let h3 = document.createElement('h3');
     h3.setAttribute('class', className);
     h3.textContent = i.name;
