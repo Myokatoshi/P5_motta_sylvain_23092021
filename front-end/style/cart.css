@@ -11332,4 +11332,55 @@ button:focus, button:hover {
 
 .footer {
   background-color: #f2ceff;
-}/*# sourceMappingURL=style.css.map */
+}
+
+.block_basket {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.block_basket_title {
+  border: 4px solid #f2ceff;
+  border-radius: 30px;
+  box-shadow: 0 0 10px #555555;
+}
+
+.content_basket {
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.row_wish {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: space-around;
+  border: 2px solid black;
+  border-radius: 30px;
+}
+
+.block_wish {
+  position: relative;
+  border: 2px solid black;
+  box-shadow: 0 0 10px #555555;
+  border-radius: 30px;
+}
+.block_wish:hover {
+  border-color: #f2ceff;
+  transition: 300ms ease-in-out;
+}
+.block_wish_image {
+  width: 100%;
+  border: 3px solid #c9b2ff;
+  box-shadow: 0 0 10px #555555;
+  border-radius: 20px;
+}
+
+.product-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=cart.css.map */
