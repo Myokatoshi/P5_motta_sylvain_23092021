@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orinoco</title>
     <meta name="description" content="Bienvenue chez Orinoco ! Nous sommes un e-commerce se démarquant des grands groupes en créant des applications thématiques ne vendant qu'un seul groupe de produit!">
-    <link rel="stylesheet" type="text/css" href="style/basket.css">
+    <link rel="stylesheet" type="text/css" href="style/cart.css">
 </head>
 <body>
     <header class="header p-3">
         <div class="logo-box col-11"><a href="index.html"><img class="logo-orinoco" src="images/logo.png" alt="logo Orinoco" role="link" aria-label="page d'accueil Orinoco"></a></div>
-        <div class="basket-box col-1 py-2 py-sm-3"><a href="basket.html" class="col-lg-3"><img class="logo-basket" src="images/basket.png" alt="panier de commande" role="link" aria-label="panier de commande"></a></div>
+        <div class="basket-box col-1 py-2 py-sm-3"><a href="cart.html" class="col-lg-3"><img class="logo-basket" src="images/basket.png" alt="panier de commande" role="link" aria-label="panier de commande"></a></div>
     </header>
 
     <main class="container">
@@ -21,7 +21,23 @@
             </div>
             <div class="content_basket p-4">
                 <h2 class="content_basket_title text-center">Votre panier est vide !/Produit(s) Ajouté(s)</h2>
-            
+                <table class="content_basket_table w-full border-collapse my-4">
+                    <thead>
+                        <tr class="bg-white border">
+                            <th class="py-2">Produit</th>
+                            <th class="py-2">Quantité</th>
+                            <th class="py-2">Prix unitaire</th>
+                            <th class="py-2">Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td></td>  
+                        </tr>
+                    </tbody>
+                </table>
+
+
                 <h2 class="mb-4">Vous pourriez aimer egalement :</h2>
                 <div class="row_wish p-2">
                     <div class="col-3 p-2">
@@ -69,6 +85,7 @@
             <a href=""><img class="px-1" src="node_modules/bootstrap-icons/envelope-fill.svg" alt="lien mail" title="lien mail"></a>
         </div>       
     </footer>
-    <script src="js/basket.js"></script>
+    
+    <script src="js/cart.js"></script>
 </body>
 </html>

@@ -1,7 +1,4 @@
-function fetchById() {
-    const queryStringUrlId = window.location.search;
-    const urlSearchParams = new URLSearchParams(queryStringUrlId);
-    const id = urlSearchParams.get("id");
+function fetchById(id) {
     let myfetchById = fetch(`http://localhost:3000/api/teddies/${id}`)
     .then(reponse  => reponse.json())
     .catch((error) => {

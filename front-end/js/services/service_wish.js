@@ -1,4 +1,4 @@
-function bodyWish(data) {
+function bodyWish(data, id) {
     const row_wish = document.getElementById("row_wish");
         data.forEach((i, item) => {
             if(i._id != id) {

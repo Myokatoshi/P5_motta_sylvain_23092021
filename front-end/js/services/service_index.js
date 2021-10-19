@@ -11,8 +11,8 @@
             const pVariations = this.createPWithClass("teddy_variations");
             let colorsNumber = i.colors.length;
             const pPrice = this.createPWithClass("teddy_price");
-
-            i.colors.forEach((j, sitem) => {
+            
+            i.colors.forEach((j, sitem) => {      
                 const colorsVariations = document.createElement("span");
                 colorsVariations.textContent = " " + j;
                 pVariations.appendChild(colorsVariations);
@@ -29,7 +29,7 @@
             img.title = "ours en peluche " + i.name;
             h2Infos.textContent = i.name;
             pDescription.textContent = i.description;
-            pVariations.textContent = "Disponible en :";
+            pVariations.textContent = "Disponible en :" + pVariations.textContent;
             pPrice.textContent = i.price/100 + "€";
 
             section.appendChild(article);
