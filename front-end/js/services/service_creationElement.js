@@ -59,6 +59,17 @@ function createImgWithClass(className) {
  * @param (string) className
  * @returns (HTMLElement)
  */
+ function createH1WithClass(className) {
+    let h1 = document.createElement('h1');
+    h1.setAttribute('class', className);
+    return h1;
+}
+
+/**
+ * 
+ * @param (string) className
+ * @returns (HTMLElement)
+ */
  function createH2WithClass(className) {
     let h2 = document.createElement('h2');
     h2.setAttribute('class', className);

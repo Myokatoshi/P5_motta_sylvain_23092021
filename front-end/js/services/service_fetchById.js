@@ -1,0 +1,11 @@
+function fetchById() {
+    const queryStringUrlId = window.location.search;
+    const urlSearchParams = new URLSearchParams(queryStringUrlId);
+    const id = urlSearchParams.get("id");
+    let myfetchById = fetch(`http://localhost:3000/api/teddies/${id}`)
+    .then(reponse  => reponse.json())
+    .catch((error) => {
+        alert("la connexion avec l'API n'a pas pu se faire. Verifiez la connexion du serveur sur le terminal avec la commande 'node server'.")
+    })
+    return myfetchById; 
+}
