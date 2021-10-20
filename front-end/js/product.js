@@ -15,3 +15,17 @@ window.onload = () => {
         bodyWish(data, id);
     });  
 }
+
+
+
+
+//localStorage
+/*let productSavedInLocalStorage = JSON.parse(localStorage.getItem("product"));
+
+if(productSavedInLocalStorage) {}
+
+else {
+    productSavedInLocalStorage = [];
+    productSavedInLocalStorage.push(colors_list_option);
+    localStorage.setItem("product", JSON.stringify(productSavedInLocalStorage));
+}*/

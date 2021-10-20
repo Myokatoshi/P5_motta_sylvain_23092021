@@ -9,6 +9,7 @@ function bodyProduct(i) {
 
     i.colors.forEach((c, color_choice) => {
         const colors_list_option = document.createElement("option");
+        colors_list_option.className = "option_product";
         colors_list_option.textContent = c;
         colors_list.appendChild(colors_list_option);    
     });
@@ -26,5 +27,22 @@ function bodyProduct(i) {
     block_content.appendChild(teddy_description);
     block_content.appendChild(teddy_price);
 
+    const idForm = document.querySelector(".option_product");
+
+    const choiceForm = idForm.value;
+
+    const btnSendCart = document.querySelector(".btn-basket");
     
+
+    btnSendCart.addEventListener("click", (event)=>{
+        event.preventDefault();
+    });
+
+    /*let optionsProduct = {
+        nameProduct = i.name,
+        optionProduct = choiceForm,
+        quantity = 1,
+        prix = i.price/100 + "€",
+    }
+    console.log(optionsProduct);*/
 }
