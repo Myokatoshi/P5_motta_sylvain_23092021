@@ -14,7 +14,6 @@ function bodyProduct(i) {
         colors_list.appendChild(colors_list_option);    
     });
 
-    
     block_product_picture.src = i.imageUrl;
     block_product_picture.alt= "ours en peluche " + i.name; 
     block_product_picture.title= "ours en peluche " + i.name;
@@ -25,24 +24,57 @@ function bodyProduct(i) {
     block_product.appendChild(block_product_picture);
     block_content.appendChild(teddy_name);
     block_content.appendChild(teddy_description);
-    block_content.appendChild(teddy_price);
+    block_content.appendChild(teddy_price);   
+}
 
-    const idForm = document.querySelector(".option_product");
 
-    const choiceForm = idForm.value;
+function addProductAtCart(i) {
+    const idForm = document.querySelector("#colors_list");
 
-    const btnSendCart = document.querySelector(".btn-basket");
-    
+    const btnSendCart = document.querySelector("#btn-basket");
 
     btnSendCart.addEventListener("click", (event)=>{
-        event.preventDefault();
-    });
+    event.preventDefault();
 
-    /*let optionsProduct = {
-        nameProduct = i.name,
-        optionProduct = choiceForm,
-        quantity = 1,
-        prix = i.price/100 + "€",
+    const choiceForm = idForm.value;
+    
+
+        let optionsProduct = {
+            nameProduct:  i.name,
+            idProduct: i._id,
+            optionProduct: choiceForm,
+            quantity: 1,
+            price: i.price/100 + "€",
+        }
+        console.log(optionsProduct);
+
+    //localStorage
+    let productSavedInLocalStorage = JSON.parse(localStorage.getItem("product"));
+    console.log(productSavedInLocalStorage);
+
+    const popupConfirmation = () => {
+        if(window.confirm(`${i.name} ${choiceForm} a bien été ajouté au panier
+        Cliquer sur OK pour aller au panier ou sur ANNULER pour continuer ces achats`)){
+            window.location.href = "cart.html";
+        }
+        else{
+            window.location.href = "index.html";
+        }
     }
-    console.log(optionsProduct);*/
+
+    if(productSavedInLocalStorage){
+        productSavedInLocalStorage.push(optionsProduct);
+        localStorage.setItem("product", JSON.stringify(productSavedInLocalStorage));
+        console.log(productSavedInLocalStorage);
+        popupConfirmation();
+    }
+
+    else{
+        productSavedInLocalStorage = [];
+        productSavedInLocalStorage.push(optionsProduct);
+        localStorage.setItem("product", JSON.stringify(productSavedInLocalStorage));
+        console.log(productSavedInLocalStorage);
+        popupConfirmation();
+    }
+    });
 }

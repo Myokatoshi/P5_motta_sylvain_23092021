@@ -7,6 +7,7 @@ window.onload = () => {
     fetchById(id).then((i) => {
         //fonction pour afficher les éléments du produit séléctionné.
         bodyProduct(i);
+        addProductAtCart(i);
                 
     });
     //fonction pour récuperer les données de l'API.
@@ -19,13 +20,3 @@ window.onload = () => {
 
 
 
-//localStorage
-/*let productSavedInLocalStorage = JSON.parse(localStorage.getItem("product"));
-
-if(productSavedInLocalStorage) {}
-
-else {
-    productSavedInLocalStorage = [];
-    productSavedInLocalStorage.push(colors_list_option);
-    localStorage.setItem("product", JSON.stringify(productSavedInLocalStorage));
-}*/
