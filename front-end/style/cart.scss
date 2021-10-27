@@ -58,3 +58,23 @@
     width: 100%;
     height: 100%;
 }
+
+.btn-trash {
+    border: none;
+    &:hover {
+        background-color: transparent;
+    }
+    
+}
+
+.trash-button {
+    
+    &:hover {
+        color: red;
+    }
+
+}
+
+.btn-delete-cart {
+    width: 25px;    
+}

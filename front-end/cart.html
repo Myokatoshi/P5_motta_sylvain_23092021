@@ -7,6 +7,7 @@
     <title>Orinoco</title>
     <meta name="description" content="Bienvenue chez Orinoco ! Nous sommes un e-commerce se démarquant des grands groupes en créant des applications thématiques ne vendant qu'un seul groupe de produit!">
     <link rel="stylesheet" type="text/css" href="style/cart.css">
+    <script src="https://kit.fontawesome.com/5362f00402.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="header p-3">
@@ -20,21 +21,20 @@
                 <h1 class="block_basket_title text-center col-3">Mon panier</h1>
             </div>
             <div class="content_basket p-4">
-                <h2 class="content_basket_title text-center">Votre panier est vide !/Produit(s) Ajouté(s)</h2>
-                <table class="content_basket_table w-full border-collapse my-4">
+                <h2 id="title_cart" class="content_basket_title text-center">Produit(s) Ajouté(s) :</h2>
+                <table id="table_cart" class="content_basket_table w-full border-collapse my-4">
                     <thead>
-                        <tr class="bg-white border">
-                            <th class="py-2">Produit</th>
-                            <th class="py-2">Quantité</th>
-                            <th class="py-2">Prix unitaire</th>
-                            <th class="py-2">Prix</th>
-                        </tr>
+                        <tr class="bg-white border text-center">
+                            <th class="py-2 col-4">Produit :</th>
+                            <th class="py-2 col-3">Quantité :</th>
+                            <th class="py-2 col-4">Prix unitaire :</th>
+                            <th class="py-2 col-1"><button class="btn-delete-cart">X</button></th>    
+                        </tr>    
                     </thead>
-                    <tbody>
-                        <tr>
-                          <td></td>  
-                        </tr>
+                    <tbody id="table_body">       
                     </tbody>
+                    <tfoot id="table_foot">
+                    </tfoot>
                 </table>
 
 
@@ -86,6 +86,7 @@
         </div>       
     </footer>
     
+    <script src="js/services/service_fetch.js"></script>
     <script src="js/cart.js"></script>
 </body>
 </html>

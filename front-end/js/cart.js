@@ -1,39 +1,71 @@
+let productSavedInLocalStorage = JSON.parse(localStorage.getItem("product"));
+console.log(productSavedInLocalStorage);
 
-//Permet de garder en memoire le panier un certain temps.
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+d.toUTCString();
+const table_cart = document.getElementById("table_cart");
+const h2Cart = document.getElementById("title_cart");
+const table_body = document.getElementById("table_body");
+const table_foot = document.getElementById("table_foot");
 
-    // règle le pb des caractères interdits
-    if ('btoa' in window) {
-        cvalue = btoa(cvalue);
+let tableCartProduct = [];
+
+if(productSavedInLocalStorage === null || productSavedInLocalStorage == 0) {
+    const emptyCart = `
+        <div class="content-empty-cart">
+            <h2>Le panier est vide !</h2>
+            </div>
+    `;
+    h2Cart.innerHTML = emptyCart;
+} 
+else {
+    for(k = 0; k < productSavedInLocalStorage.length; k++) {
+        tableCartProduct = tableCartProduct + `
+        <tr class="bg-white border text-center">
+            <td>${productSavedInLocalStorage[k].nameProduct} ${productSavedInLocalStorage[k].optionProduct}</td>
+            <td>${productSavedInLocalStorage[k].quantity}</td>
+            <td>${productSavedInLocalStorage[k].price} €</td>
+            <td><button class=btn-trash><i class="trash-button fas fa-trash-alt"></i></button></td>
+        </tr>
+        `;
     }
-
-    document.cookie = cname + "=" + cvalue + "; " + expires+';path=/';
+    if(k === productSavedInLocalStorage.length) {
+        table_body.innerHTML = tableCartProduct;
+        /*const totalPrice = `
+        <tr class="bg-white border">
+            <th class="py-2 col-4">Total :</th>
+            <th class="py-2 col-4">Total :</th>
+            <th class="py-2 col-4">${productSavedInLocalStorage[k].price.length}</th>
+        </tr>
+        `;
+        table_foot.innerHTML = totalPrice;*/
+    }    
 }
 
-function saveCart(inCartItemsNum, cartArticles) {
-    setCookie('inCartItemsNum', inCartItemsNum, 5);
-    setCookie('cartArticles', JSON.stringify(cartArticles), 5);
-}
+let btn_delete =document.querySelectorAll(".btn-trash");
+btn_delete.forEach((btn, d) => {
+    btn.addEventListener('click', () => {
+    deleteItemSelect(d);
+    alert("Ce produit a bien été supprimé du panier");
+    window.location.href = "cart.html";    
+    });
+    
+});
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
+function deleteItemSelect(index) {
+    productSavedInLocalStorage.splice(index, 1);
+    localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
 
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c[0] == ' ') {
-            c = c.substring(1);
-        }
-
-        if (c.indexOf(name) != -1) {
-            if ('btoa' in window) return atob(c.substring(name.length,c.length));
-        
-            else return c.substring(name.length,c.length);
-        }
+    if (productSavedInLocalStorage.length === 0) {
+        localStorage.removeItem('product');
     }
-
-    return false;
+    
 }
+
+
+
+/*for (let d = 0; d < btn_delete.length; d++) {
+    btn_delete[d].addEventListener("click" , (event) => {
+        event.preventDefault();
+
+        let delete_id_selected = productSavedInLocalStorage[d].idProduct;
+    })
+}*/

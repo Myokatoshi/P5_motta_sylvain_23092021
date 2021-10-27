@@ -44,13 +44,13 @@ function addProductAtCart(i) {
             idProduct: i._id,
             optionProduct: choiceForm,
             quantity: 1,
-            price: i.price/100 + "€",
+            price: i.price/100,
         }
         console.log(optionsProduct);
 
     //localStorage
     let productSavedInLocalStorage = JSON.parse(localStorage.getItem("product"));
-    console.log(productSavedInLocalStorage);
+    
 
     const popupConfirmation = () => {
         if(window.confirm(`${i.name} ${choiceForm} a bien été ajouté au panier
@@ -62,18 +62,20 @@ function addProductAtCart(i) {
         }
     }
 
-    if(productSavedInLocalStorage){
+    const addProductLocalStorage = () => {
         productSavedInLocalStorage.push(optionsProduct);
         localStorage.setItem("product", JSON.stringify(productSavedInLocalStorage));
-        console.log(productSavedInLocalStorage);
+    }
+
+
+    if(productSavedInLocalStorage){
+        addProductLocalStorage();
         popupConfirmation();
     }
 
     else{
         productSavedInLocalStorage = [];
-        productSavedInLocalStorage.push(optionsProduct);
-        localStorage.setItem("product", JSON.stringify(productSavedInLocalStorage));
-        console.log(productSavedInLocalStorage);
+        addProductLocalStorage();
         popupConfirmation();
     }
     });

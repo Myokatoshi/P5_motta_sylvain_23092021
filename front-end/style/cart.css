@@ -11390,4 +11390,19 @@ button:focus, button:hover {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.btn-trash {
+  border: none;
+}
+.btn-trash:hover {
+  background-color: transparent;
+}
+
+.trash-button:hover {
+  color: red;
+}
+
+.btn-delete-cart {
+  width: 25px;
 }/*# sourceMappingURL=cart.css.map */
