@@ -29,32 +29,33 @@ function bodyProduct(i) {
 
 
 function addProductAtCart(i) {
-    const idForm = document.querySelector("#colors_list");
-
+    const colorForm = document.querySelector("#colors_list");
+    const quantityForm = document.querySelector("#quantity_options");
     const btnSendCart = document.querySelector("#btn-basket");
 
     btnSendCart.addEventListener("click", (event)=>{
     event.preventDefault();
 
-    const choiceForm = idForm.value;
+    const choiceColorForm = colorForm.value;
+    const choiceQuantityForm = quantityForm.value;
     
-
-        let optionsProduct = {
-            nameProduct:  i.name,
-            idProduct: i._id,
-            optionProduct: choiceForm,
-            quantity: 1,
-            price: i.price/100,
-        }
-        console.log(optionsProduct);
-
+    let optionsProduct = {
+        nameProduct:  i.name,
+        idProduct: i._id,
+        optionProduct: choiceColorForm,
+        quantity: choiceQuantityForm,
+        price: i.price/100,
+        totalPriceOfSameProduct: (i.price * choiceQuantityForm)/100,
+    }
+    console.log(optionsProduct);
+     
     //localStorage
     let productSavedInLocalStorage = JSON.parse(localStorage.getItem("product"));
     
 
     const popupConfirmation = () => {
-        if(window.confirm(`${i.name} ${choiceForm} a bien été ajouté au panier
-        Cliquer sur OK pour aller au panier ou sur ANNULER pour continuer ces achats`)){
+        if(window.confirm(`${i.name} ${choiceColorForm} a bien été ajouté au panier.
+        Cliquer sur OK pour aller au panier ou sur ANNULER pour continuer ces achats.`)){
             window.location.href = "cart.html";
         }
         else{
@@ -68,9 +69,21 @@ function addProductAtCart(i) {
     }
 
 
-    if(productSavedInLocalStorage){
-        addProductLocalStorage();
-        popupConfirmation();
+    if(productSavedInLocalStorage) {
+        if(productSavedInLocalStorage.optionProduct == choiceColorForm && productSavedInLocalStorage.idProduct == i._id) {
+            productSavedInLocalStorage.choiceQuantityForm += choiceQuantityForm; 
+            popupConfirmation();
+        }
+        else {
+            addProductLocalStorage();
+            popupConfirmation();
+        }
+    }
+
+      else if(choiceQuantityForm === null || choiceQuantityForm == 0 || choiceQuantityForm > 10) {
+
+        alert("Oups ! La valeur de la quantité rentrée semble erronée ou manquante. Elle doit etre comprise entre 1 à 10");
+        
     }
 
     else{
@@ -78,5 +91,6 @@ function addProductAtCart(i) {
         addProductLocalStorage();
         popupConfirmation();
     }
+    
     });
 }

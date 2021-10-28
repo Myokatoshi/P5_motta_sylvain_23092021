@@ -11403,6 +11403,6 @@ button:focus, button:hover {
   color: red;
 }
 
-.btn-delete-cart {
+#btn-delete-cart {
   width: 25px;
 }/*# sourceMappingURL=cart.css.map */
