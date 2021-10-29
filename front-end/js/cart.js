@@ -33,7 +33,7 @@ else {
         tableCartProduct = tableCartProduct + `
         <tr class="bg-white border text-center">
             <td>${productSavedInLocalStorage[k].nameProduct} ${productSavedInLocalStorage[k].optionProduct}</td>
-            <td>${productSavedInLocalStorage[k].quantity}</td>
+            <td class="justify-content-td"><button type="submit" id="btn-less" class="btn-quantity-choice mx-1">-</button>${productSavedInLocalStorage[k].quantity}<button type="submit" id="btn-more" class="btn-quantity-choice mx-1">+</button></td>
             <td>${productSavedInLocalStorage[k].price} €</td>
             <td>${totalPriceOfSameProduct} €</td>
             <td><a type="submit" class="btn-trash"><i class="trash-button fas fa-trash-alt"></i></a></td>
@@ -100,4 +100,52 @@ const displayTotalPrice = `
         <th class="py-2 col-1"></th>
     </tr>
     `;
-    table_foot.innerHTML = displayTotalPrice;
+table_foot.innerHTML = displayTotalPrice;
+
+    
+let btn_less = document.querySelectorAll("#btn-less");
+
+btn_less.forEach((less, down) => {
+    less.addEventListener('click', () => {
+        decreaseQuantitySelected(down);
+        window.location.href = "cart.html";    
+    });
+    console.log(btn_less);
+});
+
+function decreaseQuantitySelected() {
+    for(dec = 0; dec < productSavedInLocalStorage.length; dec++) {
+    let decreaseQuantity = productSavedInLocalStorage[dec].quantity--;
+    let decreasePrice = productSavedInLocalStorage[dec].totalPriceOfSameProduct -= productSavedInLocalStorage[dec].price;
+    localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
+    if (productSavedInLocalStorage[dec].quantity === 0) {
+        localStorage.removeItem('product');
+        alert("Ce produit a bien été supprimé du panier.");
+    }
+    return decreaseQuantity;
+    return decreasePrice; 
+    }   
+}
+
+let btn_more = document.querySelectorAll("#btn-more");
+
+btn_more.forEach((more, up) => {
+    more.addEventListener('click', () => {
+        increaseQuantitySelected(up);
+        window.location.href = "cart.html";    
+    });
+    console.log(btn_more);
+});
+
+function increaseQuantitySelected() {
+    for(inc = 0; inc < productSavedInLocalStorage.length; inc++) {
+    let increaseQuantity = productSavedInLocalStorage[inc].quantity++;
+    let increasePrice = productSavedInLocalStorage[inc].totalPriceOfSameProduct += productSavedInLocalStorage[inc].price;
+    localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
+    if (productSavedInLocalStorage[inc].quantity === 0) {
+        localStorage.removeItem('product');
+    }
+    return increaseQuantity;
+    return increasePrice; 
+    }   
+}

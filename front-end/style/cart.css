@@ -11405,4 +11405,21 @@ button:focus, button:hover {
 
 #btn-delete-cart {
   width: 25px;
+}
+#btn-delete-cart:hover {
+  background-color: red;
+}
+
+.justify-content-td {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-quantity-choice {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=cart.css.map */

@@ -68,16 +68,25 @@ function addProductAtCart(i) {
         localStorage.setItem("product", JSON.stringify(productSavedInLocalStorage));
     }
 
+    function sameProductLine() {
+        for(spl = 0; spl < productSavedInLocalStorage.length; spl++) {
+            let sameProductLineResult = productSavedInLocalStorage[spl].quantity += productSavedInLocalStorage[spl].quantity;
+            localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
+        }
+        return sameProductLineResult;
+    }
 
     if(productSavedInLocalStorage) {
-        if(productSavedInLocalStorage.optionProduct == choiceColorForm && productSavedInLocalStorage.idProduct == i._id) {
-            productSavedInLocalStorage.choiceQuantityForm += choiceQuantityForm; 
-            popupConfirmation();
-        }
-        else {
-            addProductLocalStorage();
-            popupConfirmation();
-        }
+        
+            if(productSavedInLocalStorage.optionProduct == choiceColorForm && productSavedInLocalStorage.idProduct == i._id) {
+                sameProductLine(); 
+                popupConfirmation();
+            }
+            else {
+                addProductLocalStorage();
+                popupConfirmation();
+            }
+        
     }
 
       else if(choiceQuantityForm === null || choiceQuantityForm == 0 || choiceQuantityForm > 10) {
