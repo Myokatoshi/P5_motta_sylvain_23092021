@@ -11303,6 +11303,10 @@ button:focus, button:hover {
   transition: 300ms ease-in-out;
 }
 
+.typo-input {
+  border-radius: 5px;
+}
+
 .header {
   display: flex;
   background-color: #f2ceff;

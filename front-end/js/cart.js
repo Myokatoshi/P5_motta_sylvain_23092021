@@ -15,6 +15,7 @@ const h2Cart = document.getElementById("title_cart");
 const table_body = document.getElementById("table_body");
 const table_foot = document.getElementById("table_foot");
 const th_btn_delete_cart = document.getElementById("hidden-btn");
+const content_form = document.getElementById("content-form");
 
 let tableCartProduct = [];
 
@@ -25,6 +26,7 @@ if(productSavedInLocalStorage === null || productSavedInLocalStorage == 0) {
             </div>
     `;
     th_btn_delete_cart.style.display = "none";
+    content_form.style.display = "none";
     h2Cart.innerHTML = emptyCart;
 } 
 else {
@@ -149,3 +151,28 @@ function increaseQuantitySelected() {
     return increasePrice; 
     }   
 }
+
+const btn_send_form = document.querySelector("#btn_order");
+
+btn_send_form.addEventListener("click", (bsf) => {
+    bsf.preventDefault();
+
+    const formValues = {
+        firstName: document.querySelector("#firstName").value,
+        lastName: document.querySelector("#lastName").value,
+        adress: document.querySelector("#adress").value,
+        city: document.querySelector("#city").value,
+        email: document.querySelector("#email").value,
+    }
+
+    console.log(formValues);
+
+    localStorage.setItem("formValues", JSON.stringify(formValues));
+
+    const formToSend = {
+        productSavedInLocalStorage,
+        formValues,
+    }
+
+    
+})

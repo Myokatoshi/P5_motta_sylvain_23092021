@@ -18,17 +18,17 @@
     <main class="container">
         <section class="section my-5" id="section_basket">
             <div class="block_basket mb-4">
-                <h1 class="block_basket_title text-center col-3">Mon panier</h1>
+                <h1 class="block_basket_title text-center col-3 p-3">Mon panier</h1>
             </div>
             <div class="content_basket p-4">
                 <h2 id="title_cart" class="content_basket_title text-center">Produit(s) Ajouté(s) :</h2>
                 <table id="table_cart" class="content_basket_table w-full border-collapse my-4">
                     <thead>
                         <tr class="bg-white border text-center">
-                            <th class="py-2 col-5">Produit :</th>
-                            <th class="py-2 col-2">Quantité :</th>
-                            <th class="py-2 col-2">Prix unitaire :</th>
-                            <th class="py-2 col-2">Total :</th>
+                            <th class="py-2 col-5">Produit</th>
+                            <th class="py-2 col-2">Quantité</th>
+                            <th class="py-2 col-2">Prix</th>
+                            <th class="py-2 col-2">Total</th>
                             <th id="hidden-btn" class="py-2 col-1"><button id="btn-delete-cart" type="submit" aria-label="Vider le panier">X</button></th>    
                         </tr>    
                     </thead>
@@ -73,8 +73,40 @@
                 </div> 
             </div>
             
-            
-        </section>  
+            <div id="content-form" class="content_form p-4 mt-5">
+                <h2>Remplissez le formulaire pour valider la commande</h2>
+                <form class="order-form" action="get">
+                    <div class="order-form_div1">
+                        <label class="typo-text-form" for="prénom">Prénom</label>
+                        <input class="typo-input" type="text" id="firstName" name="prénom" required="text">    
+                    </div>
+
+                    <div class="order-form_div2">
+                        <label class="typo-text-form" for="nom">Nom</label>
+                        <input class="typo-input" type="text" id="lastName" name="nom" required>     
+                    </div>
+
+                    <div class="order-form_div3">
+                        <label class="typo-text-form" for="adresse">Adresse</label>
+                        <input class="typo-input" type="text" id="adress" name="adresse" required>    
+                    </div>
+
+                    <div class="order-form_div4">
+                        <label class="typo-text-form" for="ville">Ville</label>
+                        <input class="typo-input" type="text" id="city" name="ville" required>     
+                    </div>
+
+                    <div class="order-form_div5">
+                        <label class="typo-text-form" for="email">Email</label>
+                        <input class="typo-input" type="text" id="email" name="email" required>    
+                    </div>
+    
+                </form>
+
+                <button id="btn_order" class="m-auto mt-4 p-2" type="submit">Valider la commande</button>
+                
+            </div>
+        </section>
     </main>
 
     <footer class="footer p-3">
