@@ -11545,4 +11545,11 @@ button:focus, button:hover {
 .typo-text-form {
   color: #444444;
   font-weight: bold;
+}
+
+.typo-input:valid {
+  border-color: green;
+}
+.typo-input:invalid {
+  border-color: red;
 }/*# sourceMappingURL=cart.css.map */

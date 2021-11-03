@@ -37,7 +37,7 @@ function addProductAtCart(i) {
     event.preventDefault();
 
     const choiceColorForm = colorForm.value;
-    const choiceQuantityForm = quantityForm.value;
+    const choiceQuantityForm = parseInt(quantityForm.value);
     
     let optionsProduct = {
         nameProduct:  i.name,
@@ -45,9 +45,10 @@ function addProductAtCart(i) {
         optionProduct: choiceColorForm,
         quantity: choiceQuantityForm,
         price: i.price/100,
-        totalPriceOfSameProduct: (i.price * choiceQuantityForm)/100,
+        totalPriceOfSameProduct: (i.price * sameProductLine)/100,
     }
     console.log(optionsProduct);
+    console.log(optionsProduct.totalPriceOfSameProduct);
      
     //localStorage
     let productSavedInLocalStorage = JSON.parse(localStorage.getItem("product"));
@@ -68,28 +69,23 @@ function addProductAtCart(i) {
         localStorage.setItem("product", JSON.stringify(productSavedInLocalStorage));
     }
 
-    function sameProductLine() {
-        for(spl = 0; spl < productSavedInLocalStorage.length; spl++) {
-            let sameProductLineResult = productSavedInLocalStorage[spl].quantity += productSavedInLocalStorage[spl].quantity;
-            localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
-        }
-        return sameProductLineResult;
-    }
-
     if(productSavedInLocalStorage) {
         
-            if(productSavedInLocalStorage.optionProduct == choiceColorForm && productSavedInLocalStorage.idProduct == i._id) {
-                sameProductLine(); 
-                popupConfirmation();
+        for (let co = 0; co < productSavedInLocalStorage.length; co++) {
+            if(productSavedInLocalStorage[co].optionProduct == choiceColorForm && productSavedInLocalStorage[co].idProduct == i._id) {
+                
+                var sameProductLine = productSavedInLocalStorage[co].quantity += choiceQuantityForm;
+                localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
             }
             else {
                 addProductLocalStorage();
-                popupConfirmation();
+                
             }
-        
+        }    
+        popupConfirmation();
     }
 
-      else if(choiceQuantityForm === null || choiceQuantityForm == 0 || choiceQuantityForm > 10) {
+      else if(choiceQuantityForm == null || choiceQuantityForm == 0 || choiceQuantityForm > 10) {
 
         alert("Oups ! La valeur de la quantité rentrée semble erronée ou manquante. Elle doit etre comprise entre 1 à 10");
         
