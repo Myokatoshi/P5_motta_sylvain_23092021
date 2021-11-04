@@ -27,6 +27,7 @@ function bodyProduct(i) {
     block_content.appendChild(teddy_price);   
 }
 
+var sameProductLine;
 
 function addProductAtCart(i) {
     const colorForm = document.querySelector("#colors_list");
@@ -38,7 +39,8 @@ function addProductAtCart(i) {
 
     const choiceColorForm = colorForm.value;
     const choiceQuantityForm = parseInt(quantityForm.value);
-    
+    sameProductLine = choiceQuantityForm;
+
     let optionsProduct = {
         nameProduct:  i.name,
         idProduct: i._id,
@@ -74,10 +76,13 @@ function addProductAtCart(i) {
         for (let co = 0; co < productSavedInLocalStorage.length; co++) {
             if(productSavedInLocalStorage[co].optionProduct == choiceColorForm && productSavedInLocalStorage[co].idProduct == i._id) {
                 
-                var sameProductLine = productSavedInLocalStorage[co].quantity += choiceQuantityForm;
+                sameProductLine = productSavedInLocalStorage[co].quantity += choiceQuantityForm;
+                productSavedInLocalStorage[co].totalPriceOfSameProduct = (i.price * sameProductLine)/100;
                 localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
             }
+            
             else {
+                
                 addProductLocalStorage();
                 
             }

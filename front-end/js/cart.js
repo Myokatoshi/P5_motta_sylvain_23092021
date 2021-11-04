@@ -32,18 +32,15 @@ if(productSavedInLocalStorage === null || productSavedInLocalStorage == 0) {
 } 
 else {
     for(k = 0; k < productSavedInLocalStorage.length; k++) {
-        const totalPriceOfSameProduct = productSavedInLocalStorage[k].quantity * productSavedInLocalStorage[k].price;
         tableCartProduct = tableCartProduct + `
         <tr class="bg-white border text-center">
             <td>${productSavedInLocalStorage[k].nameProduct} ${productSavedInLocalStorage[k].optionProduct}</td>
             <td class="justify-content-td"><button type="submit" id="btn-less" class="btn-quantity-choice mx-1">-</button>${productSavedInLocalStorage[k].quantity}<button type="submit" id="btn-more" class="btn-quantity-choice mx-1">+</button></td>
             <td>${productSavedInLocalStorage[k].price} €</td>
-            <td>${totalPriceOfSameProduct} €</td>
+            <td>${productSavedInLocalStorage[k].totalPriceOfSameProduct} €</td>
             <td><a type="submit" class="btn-trash"><i class="trash-button fas fa-trash-alt"></i></a></td>
         </tr>
-        `;
-        
-        
+        `;  
     }
     if(k === productSavedInLocalStorage.length) {
         table_body.innerHTML = tableCartProduct;
