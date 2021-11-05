@@ -276,15 +276,17 @@ btn_send_form.addEventListener("click", (bsf) => {
 
     console.log(formToSend);
 
-    /*const promiseSaveOnServer = fetch("http://localhost:3000/api/teddies/order", {
+    const promiseSaveOnServer = fetch("http://localhost:3000/api/teddies/order", {
         method: "POST",
         body: JSON.stringify(formToSend),
         headers: {
           "Content-Type": "application/json",  
         },
-    });*/
+    });
 
-    const asyncPostCall = async () => {
+    
+        console.log(promiseSaveOnServer);
+    /*const asyncPostCall = async () => {
         try {
             const response = await fetch('http://localhost:3000/api/teddies/order', {
              method: 'POST',
@@ -303,7 +305,7 @@ btn_send_form.addEventListener("click", (bsf) => {
              } 
         }
 
-    asyncPostCall();
+    asyncPostCall();*/
 });
 
 const dataLocalStorage = localStorage.getItem("formValues");
