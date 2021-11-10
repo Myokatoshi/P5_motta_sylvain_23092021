@@ -34,7 +34,7 @@ else {
     for(k = 0; k < productSavedInLocalStorage.length; k++) {
         tableCartProduct = tableCartProduct + `
         <tr class="bg-white border text-center">
-            <td>${productSavedInLocalStorage[k].nameProduct} ${productSavedInLocalStorage[k].optionProduct}</td>
+            <td>${productSavedInLocalStorage[k].name} ${productSavedInLocalStorage[k].colors}</td>
             <td class="justify-content-td"><button type="submit" id="btn-less" class="btn-quantity-choice mx-1">-</button>${productSavedInLocalStorage[k].quantity}<button type="submit" id="btn-more" class="btn-quantity-choice mx-1">+</button></td>
             <td>${productSavedInLocalStorage[k].price} €</td>
             <td>${productSavedInLocalStorage[k].totalPriceOfSameProduct} €</td>
@@ -105,51 +105,56 @@ table_foot.innerHTML = displayTotalPrice;
 
     
 let btn_less = document.querySelectorAll("#btn-less");
+let decreaseQuantity;
+let decreasePrice;
 
 btn_less.forEach((less, down) => {
+    
     less.addEventListener('click', () => {
-        decreaseQuantitySelected(down);
-        window.location.href = "cart.html";    
+        productSavedInLocalStorage.filter((dec) => {
+            return decreaseQuantitySelected(dec);       
+        })
+           
+        window.location.href = "cart.html";
+
     });
-    console.log(btn_less);
+    
 });
 
-function decreaseQuantitySelected() {
-    for(dec = 0; dec < productSavedInLocalStorage.length; dec++) {
-    let decreaseQuantity = productSavedInLocalStorage[dec].quantity--;
-    let decreasePrice = productSavedInLocalStorage[dec].totalPriceOfSameProduct -= productSavedInLocalStorage[dec].price;
+function decreaseQuantitySelected(dqs) {
+    decreaseQuantity = dqs.quantity--;
+    decreasePrice = dqs.totalPriceOfSameProduct -= dqs.price;
     localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
-    if (productSavedInLocalStorage[dec].quantity === 0) {
+    if (dqs.quantity === 0) {
         localStorage.removeItem('product');
         alert("Ce produit a bien été supprimé du panier.");
     }
-    return decreaseQuantity;
-    return decreasePrice; 
-    }   
 }
 
+
+
 let btn_more = document.querySelectorAll("#btn-more");
+let increaseQuantity;
+let increasePrice;
+let increaseQuantitySelected;
 
 btn_more.forEach((more, up) => {
     more.addEventListener('click', () => {
-        increaseQuantitySelected(up);
-        window.location.href = "cart.html";    
-    });
-    console.log(btn_more);
-});
 
-function increaseQuantitySelected() {
-    for(inc = 0; inc < productSavedInLocalStorage.length; inc++) {
-    let increaseQuantity = productSavedInLocalStorage[inc].quantity++;
-    let increasePrice = productSavedInLocalStorage[inc].totalPriceOfSameProduct += productSavedInLocalStorage[inc].price;
-    localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
-    if (productSavedInLocalStorage[inc].quantity === 0) {
-        localStorage.removeItem('product');
+    productSavedInLocalStorage.filter((inc) => {
+        if (tableCartProduct.includes()) {
+        return increaseQuantitySelected = inc;
+        }
+    })
+    
+    if(increaseQuantitySelected) {
+        increaseQuantity = increaseQuantitySelected.quantity++;
+        increasePrice = increaseQuantitySelected.totalPriceOfSameProduct += increaseQuantitySelected.price;
+        localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
     }
-    return increaseQuantity;
-    return increasePrice; 
-    }   
-}
+    window.location.href = "cart.html";
+    });
+});
 
 const btn_send_form = document.querySelector("#btn_order");
 
@@ -168,8 +173,6 @@ btn_send_form.addEventListener("click", (bsf) => {
     }
 
     const formValues = new Form();
-
-    console.log(formValues);
 
     const regExFirstNameLastName = (value) => {
         return /^[A-Za-z]{3,20}$/.test(value);
@@ -268,42 +271,32 @@ btn_send_form.addEventListener("click", (bsf) => {
     else {
         alert("Veuillez bien remplir le formulaire");
     }
+    
+
+    let contact = {
+        firstName: formValues.firstName,
+        lastName: formValues.lastName,
+        adress: formValues.adress,
+        city: formValues.city,
+        email: formValues.email,
+        products: productSavedInLocalStorage,
+    }
+    console.log(contact);
 
     const formToSend = {
-        productSavedInLocalStorage,
-        formValues,
+        contact,
     }
 
-    console.log(formToSend);
-
-    /*const promiseSaveOnServer = fetch("http://localhost:3000/api/teddies/order", {
+    const promiseSaveOnServer = fetch("http://localhost:3000/api/teddies/order", {
         method: "POST",
         body: JSON.stringify(formToSend),
         headers: {
           "Content-Type": "application/json",  
         },
-    });*/
+    });
 
-    const asyncPostCall = async () => {
-        try {
-            const response = await fetch('http://localhost:3000/api/teddies/order', {
-             method: 'POST',
-             headers: {
-               'Content-Type': 'application/json'
-               },
-               body: JSON.stringify(formToSend)
-             });
-             const data = await response.json();
-          // enter you logic when the fetch is successful
-             console.log(data);
-           } catch(error) {
-         // enter your logic for when there is an error (ex. error toast)
+    console.log(JSON.stringify(formToSend));
 
-              console.log(error)
-             } 
-        }
-
-    asyncPostCall();
 });
 
 const dataLocalStorage = localStorage.getItem("formValues");
@@ -319,5 +312,3 @@ automaticSavingFillingsFormSinceLocalStorage("lastName");
 automaticSavingFillingsFormSinceLocalStorage("adress");
 automaticSavingFillingsFormSinceLocalStorage("city");
 automaticSavingFillingsFormSinceLocalStorage("email");
-
- 

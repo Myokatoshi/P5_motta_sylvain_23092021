@@ -42,13 +42,25 @@ function addProductAtCart(i) {
     sameProductLine = choiceQuantityForm;
 
     let optionsProduct = {
-        nameProduct:  i.name,
-        idProduct: i._id,
-        optionProduct: choiceColorForm,
-        quantity: choiceQuantityForm,
+        colors: choiceColorForm,
+        _id: i._id,
+        name:  i.name,
         price: i.price/100,
+        imageUrl: i.imageUrl,
+        description: i.description,
+        quantity: choiceQuantityForm,
         totalPriceOfSameProduct: (i.price * sameProductLine)/100,
     }
+
+    /*let myNewOptionsProduct = {
+        colors: choiceColorForm,
+        _id: i._id,
+        name:  i.name,
+        price: i.price/100,
+        imageUrl: i.imageUrl,
+        description: i.description,
+    }*/
+
     console.log(optionsProduct);
     console.log(optionsProduct.totalPriceOfSameProduct);
      
@@ -71,35 +83,48 @@ function addProductAtCart(i) {
         localStorage.setItem("product", JSON.stringify(productSavedInLocalStorage));
     }
 
+    console.log(productSavedInLocalStorage);
+
     if(productSavedInLocalStorage) {
-        
-        for (let co = 0; co < productSavedInLocalStorage.length; co++) {
-            if(productSavedInLocalStorage[co].optionProduct == choiceColorForm && productSavedInLocalStorage[co].idProduct == i._id) {
+        let result;
+        productSavedInLocalStorage.filter((productFilter) => {
+            if (productFilter.colors == choiceColorForm && productFilter._id == i._id) {
+
+                return result = productFilter;
                 
-                sameProductLine = productSavedInLocalStorage[co].quantity += choiceQuantityForm;
-                productSavedInLocalStorage[co].totalPriceOfSameProduct = (i.price * sameProductLine)/100;
-                localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
             }
+        })
+        console.log(result);
+        if(result) {
+            sameProductLine = result.quantity += choiceQuantityForm;
+            result.totalPriceOfSameProduct = (i.price * sameProductLine)/100;
+            localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
+            popupConfirmation();
+        }
+
+        else if(choiceQuantityForm >= 1 && choiceQuantityForm <= 10) {
+
+            addProductLocalStorage();
+            popupConfirmation();
             
-            else {
-                
-                addProductLocalStorage();
-                
-            }
-        }    
-        popupConfirmation();
-    }
+        }
 
-      else if(choiceQuantityForm == null || choiceQuantityForm == 0 || choiceQuantityForm > 10) {
-
-        alert("Oups ! La valeur de la quantité rentrée semble erronée ou manquante. Elle doit etre comprise entre 1 à 10");
+        else {
+            alert("Oups ! La valeur de la quantité rentrée semble erronée ou manquante. Elle doit etre comprise entre 1 à 10");
+            
+        }
         
-    }
+    }    
 
-    else{
+    else if(choiceQuantityForm >= 1 && choiceQuantityForm <= 10) {
+
         productSavedInLocalStorage = [];
         addProductLocalStorage();
         popupConfirmation();
+    }
+
+    else{
+        alert("Oups ! La valeur de la quantité rentrée semble erronée ou manquante. Elle doit etre comprise entre 1 à 10");
     }
     
     });
