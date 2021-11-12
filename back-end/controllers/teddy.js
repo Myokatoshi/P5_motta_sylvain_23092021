@@ -57,14 +57,17 @@ exports.orderTeddies = (req, res, next) => {
     return res.status(400).send(new Error('Bad request!'));
   }
   let queries = [];
-  for (let productId of req.body.products) {
+  for (let product of req.body.products) {
+    
     const queryPromise = new Promise((resolve, reject) => {
-      Teddy.findById(productId).then(
+      Teddy.findById(product._id).then(
         (teddy) => {
           if (!teddy) {
-            reject('Camera not found: ' + productId);
+            reject('teddies not found: ' + product._id);
           }
           teddy.imageUrl = req.protocol + '://' + req.get('host') + '/images/' + teddy.imageUrl;
+          teddy.qty = product.quantity; 
+          teddy.total = teddy.price * teddy.qty;
           resolve(teddy);
         }
       ).catch(

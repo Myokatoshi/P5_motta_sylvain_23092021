@@ -52,14 +52,6 @@ function addProductAtCart(i) {
         totalPriceOfSameProduct: (i.price * sameProductLine)/100,
     }
 
-    /*let myNewOptionsProduct = {
-        colors: choiceColorForm,
-        _id: i._id,
-        name:  i.name,
-        price: i.price/100,
-        imageUrl: i.imageUrl,
-        description: i.description,
-    }*/
 
     console.log(optionsProduct);
     console.log(optionsProduct.totalPriceOfSameProduct);

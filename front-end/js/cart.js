@@ -35,7 +35,7 @@ else {
         tableCartProduct = tableCartProduct + `
         <tr class="bg-white border text-center">
             <td>${productSavedInLocalStorage[k].name} ${productSavedInLocalStorage[k].colors}</td>
-            <td class="justify-content-td"><button type="submit" id="btn-less" class="btn-quantity-choice mx-1">-</button>${productSavedInLocalStorage[k].quantity}<button type="submit" id="btn-more" class="btn-quantity-choice mx-1">+</button></td>
+            <td class="justify-content-td"><button type="submit" id="btn-less" data-num="${k}" class="btn-quantity-choice mx-1">-</button>${productSavedInLocalStorage[k].quantity}<button type="submit" id="btn-more" data-num="${k}" class="btn-quantity-choice mx-1">+</button></td>
             <td>${productSavedInLocalStorage[k].price} €</td>
             <td>${productSavedInLocalStorage[k].totalPriceOfSameProduct} €</td>
             <td><a type="submit" class="btn-trash"><i class="trash-button fas fa-trash-alt"></i></a></td>
@@ -52,7 +52,7 @@ btn_delete.forEach((btn, d) => {
     btn.addEventListener('click', () => {
     deleteItemSelected(d);
     alert("Ce produit a bien été supprimé du panier.");
-    window.location.href = "cart.html";    
+    window.location.reload;    
     });
     
 });
@@ -73,7 +73,7 @@ btn_delete_cart.addEventListener('click', (e) => {
     e.preventDefault;
     localStorage.removeItem("product");
     alert("Le panier a bien été vidé !");
-    window.location.href = "cart.html";    
+    window.location.reload();    
 });
     
 
@@ -109,26 +109,28 @@ let decreaseQuantity;
 let decreasePrice;
 
 btn_less.forEach((less, down) => {
-    
     less.addEventListener('click', () => {
-        productSavedInLocalStorage.filter((dec) => {
-            return decreaseQuantitySelected(dec);       
-        })
-           
-        window.location.href = "cart.html";
-
+        let dataNum = less.getAttribute("data-num");
+        decreaseQuantitySelected(productSavedInLocalStorage[dataNum], dataNum);       
+        window.location.reload();
     });
     
 });
 
-function decreaseQuantitySelected(dqs) {
+/**
+ * 
+ * @param {*} dqs 
+ * @param {*} dNum 
+ */
+function decreaseQuantitySelected(dqs, dNum) {
     decreaseQuantity = dqs.quantity--;
     decreasePrice = dqs.totalPriceOfSameProduct -= dqs.price;
-    localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
+    
     if (dqs.quantity === 0) {
-        localStorage.removeItem('product');
+        productSavedInLocalStorage.splice(dNum, 1);
         alert("Ce produit a bien été supprimé du panier.");
     }
+    localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
 }
 
 
@@ -136,25 +138,20 @@ function decreaseQuantitySelected(dqs) {
 let btn_more = document.querySelectorAll("#btn-more");
 let increaseQuantity;
 let increasePrice;
-let increaseQuantitySelected;
 
 btn_more.forEach((more, up) => {
     more.addEventListener('click', () => {
-
-    productSavedInLocalStorage.filter((inc) => {
-        if (tableCartProduct.includes()) {
-        return increaseQuantitySelected = inc;
-        }
-    })
-    
-    if(increaseQuantitySelected) {
-        increaseQuantity = increaseQuantitySelected.quantity++;
-        increasePrice = increaseQuantitySelected.totalPriceOfSameProduct += increaseQuantitySelected.price;
-        localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
-    }
-    window.location.href = "cart.html";
+        let dataNum = more.getAttribute("data-num");    
+        increaseQuantitySelected(productSavedInLocalStorage[dataNum]);
+        window.location.reload();          
     });
-});
+});    
+
+function increaseQuantitySelected(iqs) {
+    increaseQuantity = iqs.quantity++;
+    increasePrice = iqs.totalPriceOfSameProduct += iqs.price;
+    localStorage.setItem('product', JSON.stringify(productSavedInLocalStorage));
+}
 
 const btn_send_form = document.querySelector("#btn_order");
 
@@ -270,22 +267,27 @@ btn_send_form.addEventListener("click", (bsf) => {
     }
     else {
         alert("Veuillez bien remplir le formulaire");
+        return;
     }
     
+    let cart = [];
+
 
     let contact = {
         firstName: formValues.firstName,
         lastName: formValues.lastName,
-        adress: formValues.adress,
+        address: formValues.adress,
         city: formValues.city,
-        email: formValues.email,
-        products: productSavedInLocalStorage,
+        email: formValues.email,    
     }
     console.log(contact);
 
+
     const formToSend = {
-        contact,
+        contact: contact,
+        products: productSavedInLocalStorage,
     }
+
 
     const promiseSaveOnServer = fetch("http://localhost:3000/api/teddies/order", {
         method: "POST",
@@ -293,10 +295,11 @@ btn_send_form.addEventListener("click", (bsf) => {
         headers: {
           "Content-Type": "application/json",  
         },
+    }).then(reponse  => reponse.json());
+    promiseSaveOnServer.then((order) => {
+        console.log(order);
     });
-
-    console.log(JSON.stringify(formToSend));
-
+    
 });
 
 const dataLocalStorage = localStorage.getItem("formValues");
