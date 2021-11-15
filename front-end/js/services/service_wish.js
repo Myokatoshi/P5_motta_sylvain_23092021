@@ -1,4 +1,9 @@
-function bodyWish(data, id) {
+/**
+ * fonction de suggestion des autres produits
+ * @param {*} data 
+ * @param {*} id 
+ */
+/*function bodyWish(data, id) {
     const row_wish = document.getElementById("row_wish");
         data.forEach((i, item) => {
             if(i._id != id) {
@@ -21,4 +26,4 @@ function bodyWish(data, id) {
                 block_wish.appendChild(block_wish_title);
             }
         });
-}
+}*/

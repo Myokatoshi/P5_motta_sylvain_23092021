@@ -66,8 +66,7 @@ exports.orderTeddies = (req, res, next) => {
             reject('teddies not found: ' + product._id);
           }
           teddy.imageUrl = req.protocol + '://' + req.get('host') + '/images/' + teddy.imageUrl;
-          teddy.qty = product.quantity; 
-          teddy.total = teddy.price * teddy.qty;
+          
           resolve(teddy);
         }
       ).catch(

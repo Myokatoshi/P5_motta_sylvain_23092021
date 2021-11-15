@@ -11338,93 +11338,27 @@ button:focus, button:hover {
   background-color: #f2ceff;
 }
 
-.oriteddies {
-  border: 2px solid black;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #555555;
-  margin: 20px 0 20px 0;
+#section_order {
+  min-height: 675px;
 }
 
-#section_article {
-  min-height: 600px;
-  display: flex;
-  flex-direction: column;
-}
-
-.article {
-  display: flex;
-  position: relative;
-  border: 2px solid black;
-  border-radius: 15px;
-  box-shadow: 0 0 10px #555555;
-  transition: 300ms ease-in-out;
-  justify-content: center;
-}
-.article:hover {
-  border-color: #f2ceff;
-  transition: 300ms ease-in-out;
-}
-.article_infos {
-  margin: 1.5rem;
-  margin-left: 0;
-  font-size: 20px;
-}
-@media screen and (max-width: 1200px) {
-  .article_infos {
-    z-index: 100;
-    max-height: 180px;
-    max-width: -webkit-max-content;
-    max-width: -moz-max-content;
-    max-width: max-content;
-    overflow: auto;
-  }
-}
-@media screen and (max-width: 767px) {
-  .article_infos {
-    margin: 1.5rem;
-  }
-}
-.article_picture {
-  max-width: 30%;
-  max-height: 90%;
-  -o-object-fit: cover;
-     object-fit: cover;
+.recap_order {
+  width: 80vw;
   border: 3px solid #c9b2ff;
-  border-radius: 15px;
-  margin: 20px;
+  border-radius: 10px;
 }
-@media screen and (max-width: 991px) {
-  .article_picture {
-    max-width: 40%;
-  }
-}
-@media screen and (max-width: 767px) {
-  .article_picture {
-    max-width: 90%;
-  }
-}
-@media screen and (max-width: 767px) {
-  .article {
-    flex-direction: column;
-    text-align: center;
+@media screen and (min-width: 1400px) {
+  .recap_order {
+    width: 65vw;
   }
 }
 
-.teddy_variations {
-  display: flex;
-  flex-wrap: wrap;
-}
-@media screen and (max-width: 767px) {
-  .teddy_variations {
-    align-items: center;
-    justify-content: center;
-  }
+.text-confirm {
+  font-weight: bold;
+  font-size: 25px;
+  color: #693ecc;
 }
 
-.product-link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}/*# sourceMappingURL=index.css.map */
+.font-text {
+  font-size: 20px;
+}/*# sourceMappingURL=confirm_order.css.map */

@@ -264,14 +264,12 @@ btn_send_form.addEventListener("click", (bsf) => {
 
     if(firstNameControlForm() && lastNameControlForm() && cityControlForm() && adressControlForm() && emailControlForm()) {
         localStorage.setItem("formValues", JSON.stringify(formValues));
+        localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
     }
     else {
         alert("Veuillez bien remplir le formulaire");
         return;
     }
-    
-    let cart = [];
-
 
     let contact = {
         firstName: formValues.firstName,
@@ -282,13 +280,13 @@ btn_send_form.addEventListener("click", (bsf) => {
     }
     console.log(contact);
 
-
     const formToSend = {
         contact: contact,
         products: productSavedInLocalStorage,
+        totalPrice,
     }
 
-
+    console.log(formToSend);
     const promiseSaveOnServer = fetch("http://localhost:3000/api/teddies/order", {
         method: "POST",
         body: JSON.stringify(formToSend),
@@ -298,8 +296,10 @@ btn_send_form.addEventListener("click", (bsf) => {
     }).then(reponse  => reponse.json());
     promiseSaveOnServer.then((order) => {
         console.log(order);
+        localStorage.setItem("orderId", order.orderId);
     });
-    
+
+    window.location.href = "confirm_order.html";
 });
 
 const dataLocalStorage = localStorage.getItem("formValues");

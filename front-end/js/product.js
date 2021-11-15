@@ -11,10 +11,10 @@ window.onload = () => {
                 
     });
     //fonction pour récuperer les données de l'API.
-    fetchInit().then((data) => {
+    /*fetchInit().then((data) => {
         //fonction pour afficher les autres produits en suggestion.
         bodyWish(data, id);
-    });  
+    });*/  
 }
 
 

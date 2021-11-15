@@ -1,5 +1,9 @@
 @import "style.scss";
 
+.container {
+    min-height: 675px;
+}
+
 #section_product {
     display: flex;
     flex-direction: row;

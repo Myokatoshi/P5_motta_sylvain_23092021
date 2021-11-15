@@ -11338,6 +11338,10 @@ button:focus, button:hover {
   background-color: #f2ceff;
 }
 
+.container {
+  min-height: 675px;
+}
+
 #section_product {
   display: flex;
   flex-direction: row;

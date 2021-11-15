@@ -1,7 +1,7 @@
 @import "style.scss";
 
 #section_basket {
-    min-height: 1100px;
+    min-height: 675px;
 }
 
 .block_basket {
@@ -26,6 +26,29 @@
         width: 100%;
     }
 }
+
+
+/*@media screen and (max-width: 575px) {
+    #table_cart {
+        display: grid;
+        grid-column: 1fr;
+        grid-row: auto auto auto;    
+    }
+    .table_head {
+        display: grid;
+        grid-column: 1fr;
+        grid-row: auto auto auto auto auto;
+    }
+    #table_body {
+        display: grid;
+        grid-column: auto;
+    }
+    #table_foot {
+        display: grid;
+        grid-column: auto;
+    } 
+}*/
+
 
 .row_wish {
     display: flex;
