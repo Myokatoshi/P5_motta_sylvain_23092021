@@ -1,9 +1,14 @@
+//on creer des constantes en récuperant des données du localstorage
+
+//le numéro de commande
 const orderId = localStorage.getItem("orderId");
 
+//le coût total de la commande
 const totalPrice = localStorage.getItem("totalPrice");
 
 const positionOrderConfirm = document.querySelector("#section_order");
 
+//on cree la structure du block récapitulatif en intégrant les éléments crées ci-dessus
 const bodyOrderConfirm = `
 <div class="recap_order text-center m-auto my-5 p-4">
             <h1 class="pb-1">Récapitulatif de votre commande</h1>
@@ -15,14 +20,20 @@ const bodyOrderConfirm = `
 
 positionOrderConfirm.innerHTML = bodyOrderConfirm;
 
+/**
+ * fonction permettant du supprimer des éléments du localstorage
+ * @param {*} key 
+ */
 function deleteKeyLocalStorage(key) {
     localStorage.removeItem(key);
 };
 
+//au chargement de la page on vide les éléments ci-dessous du localstorage
 deleteKeyLocalStorage("totalPrice");
 deleteKeyLocalStorage("product");
 deleteKeyLocalStorage("orderId");
 
+//au rechargement de la page, l'utilisateur est reconduit à la page index
 if(orderId == null || totalPrice == null) {
 window.location.href ="index.html";
 }

@@ -1,5 +1,7 @@
+//importation de bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+//choix de la font pour le site
 @font-face {
     font-family: 'OpenSans';
     src:url('../fonts/OpenSans-VariableFont_wdth\,wght.ttf');
@@ -7,16 +9,19 @@
     font-style: normal;
 }
 
+//mise en place de la font et du border-box pour tout le site
 * {
     font-family: 'OpenSans';
     box-sizing: border-box;
 }
 
+//mise en forme des liens du site
 a, a:hover {
     text-decoration: none;
     color: inherit;
 }
 
+//mise en forme des boutons du site
 button {
     background-color: inherit;
     padding: 0;
@@ -28,15 +33,18 @@ button {
     }
 }
 
+//mise en forme des champs du formulaire sur la page panier
 .typo-input {
     border-radius: 5px;
 }
 
+//structure du header sur toutes les pages
 .header {
     display: flex;
     background-color: #f2ceff; 
 }
 
+//taille du logo orinoco
 .logo-orinoco {
     width: 300px;
     @media screen and (max-width: 1024px) {
@@ -44,19 +52,23 @@ button {
     }
 }
 
+//positionnement du logo panier sur toutes les pages
 .basket-box {
     display: flex;
     justify-content: center; 
 }
 
+//taille du logo panier sur toutes les pages
 .logo-basket {
     width: 40px;
 }
 
+//taille de la section optionnelle de suggestion
 .section_wish {
     min-height: 300px;
 }
 
+//structure du footer sur toutes les pages
 .footer {
     background-color: #f2ceff;
 }

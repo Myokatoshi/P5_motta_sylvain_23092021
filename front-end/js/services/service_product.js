@@ -1,3 +1,7 @@
+/**
+ * function permettant de creer une partie de la structure du body de la page product
+ * @param {*} i 
+ */
 function bodyProduct(i) {
     const block_product = document.getElementById("block_product");
     const block_product_picture = this.createImgWithClass("block_product_picture teddy_picture col-12");
@@ -27,8 +31,13 @@ function bodyProduct(i) {
     block_content.appendChild(teddy_price);   
 }
 
+//utilisation unique du var pour pouvoir réutiliser mon élément à 3 endroits du fichier
 var sameProductLine;
 
+/**
+ * fonction permettant d'ajouter au panier un article avec la couleur et la quantité choisies
+ * @param {*} i 
+ */
 function addProductAtCart(i) {
     const colorForm = document.querySelector("#colors_list");
     const quantityForm = document.querySelector("#quantity_options");
@@ -51,10 +60,6 @@ function addProductAtCart(i) {
         quantity: choiceQuantityForm,
         totalPriceOfSameProduct: (i.price * sameProductLine)/100,
     }
-
-
-    console.log(optionsProduct);
-    console.log(optionsProduct.totalPriceOfSameProduct);
      
     //localStorage
     let productSavedInLocalStorage = JSON.parse(localStorage.getItem("product"));
@@ -75,7 +80,6 @@ function addProductAtCart(i) {
         localStorage.setItem("product", JSON.stringify(productSavedInLocalStorage));
     }
 
-    console.log(productSavedInLocalStorage);
 
     if(productSavedInLocalStorage) {
         let result;
@@ -86,7 +90,6 @@ function addProductAtCart(i) {
                 
             }
         })
-        console.log(result);
         if(result) {
             sameProductLine = result.quantity += choiceQuantityForm;
             result.totalPriceOfSameProduct = (i.price * sameProductLine)/100;

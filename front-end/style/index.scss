@@ -1,19 +1,14 @@
+//importation du fichier style
 @import "style.scss";
 
-.oriteddies {
-    border: 2px solid black;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #555555;
-    margin: 20px 0 20px 0;
-}
-
+//structure du body de la page
 #section_article {
-    min-height: 600px;
+    min-height: 675px;
     display: flex;
     flex-direction: column;
 }
 
-
+//mise en forme de chaque article 
 .article {
     display: flex;
     position: relative;
@@ -62,6 +57,7 @@
     }
 }
 
+//mise en forme choix de couleurs
 .teddy_variations {
     display: flex;
     flex-wrap: wrap;
@@ -72,6 +68,7 @@
     
 }
 
+//mise en forme lien de chaque article
 .product-link {
     position: absolute;
     top: 0;

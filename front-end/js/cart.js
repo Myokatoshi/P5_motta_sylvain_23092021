@@ -1,3 +1,7 @@
+/**
+ * fonction vérifiant si le panier vide ou pas
+ * @returns true ou false
+ */
 function emptyCart() {
     if(productSavedInLocalStorage === null || productSavedInLocalStorage == 0) {
         return true;
@@ -8,7 +12,6 @@ function emptyCart() {
 }
 
 let productSavedInLocalStorage = JSON.parse(localStorage.getItem("product"));
-console.log(productSavedInLocalStorage);
 
 const table_cart = document.getElementById("table_cart");
 const h2Cart = document.getElementById("title_cart");
@@ -19,7 +22,7 @@ const content_form = document.getElementById("content-form");
 
 let tableCartProduct = [];
 
-
+//structure du tableau du panier en fonction de s'il est vide ou non
 if(productSavedInLocalStorage === null || productSavedInLocalStorage == 0) {
     const emptyCart = `
         <div class="content-empty-cart">
@@ -52,7 +55,7 @@ btn_delete.forEach((btn, d) => {
     btn.addEventListener('click', () => {
     deleteItemSelected(d);
     alert("Ce produit a bien été supprimé du panier.");
-    window.location.reload;    
+    window.location.reload();    
     });
     
 });
@@ -85,13 +88,12 @@ if(emptyCart() === false) {
         
         arrayTotalPrice.push(priceProductInCart);
 
-        console.log(arrayTotalPrice);
     }
 }
 
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 const totalPrice = arrayTotalPrice.reduce(reducer, 0);
-console.log(totalPrice);
+
 const displayTotalPrice = `
     <tr class="bg-white border text-center">
         <th class="py-2 col-5">Total :</th>
@@ -118,7 +120,7 @@ btn_less.forEach((less, down) => {
 });
 
 /**
- * 
+ * fonction permettant de retirer 1 à la quantité du produit séléctionné ainsi que son prix à la somme totale
  * @param {*} dqs 
  * @param {*} dNum 
  */
@@ -147,6 +149,10 @@ btn_more.forEach((more, up) => {
     });
 });    
 
+/**
+ * fonction permettant d'ajouter 1 à la quantité du produit séléctionné ainsi que son prix à la somme totale
+ * @param {*} iqs 
+ */
 function increaseQuantitySelected(iqs) {
     increaseQuantity = iqs.quantity++;
     increasePrice = iqs.totalPriceOfSameProduct += iqs.price;
@@ -278,7 +284,6 @@ btn_send_form.addEventListener("click", (bsf) => {
         city: formValues.city,
         email: formValues.email,    
     }
-    console.log(contact);
 
     const formToSend = {
         contact: contact,

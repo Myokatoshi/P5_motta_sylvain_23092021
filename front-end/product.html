@@ -10,11 +10,15 @@
 </head>
 
 <body>
+
+    <!---HEADER--->
     <header class="header p-3">
         <div class="logo-box col-11"><a href="index.html"><img class="logo-orinoco" src="images/logo.png" alt="logo Orinoco" role="link" aria-label="page d'accueil Orinoco"></a></div>
         <div class="basket-box col-1 py-2 py-sm-3"><a href="cart.html" class="col-lg-3"><img class="logo-basket" src="images/basket.png" alt="panier de commande" role="link" aria-label="panier de commande"></a></div>
     </header>
+    <!---HEADER--->
 
+    <!---MAIN--->
     <main class="container">
         <section class="section my-5" id="section_product">
             <div id="block_product" class="block_product col-lg-6"></div>
@@ -28,7 +32,7 @@
                     <button id="btn-basket" type="submit" class="p-3">Ajouter au panier</button>
             </div>    
         </section>
-        <!--- carousel
+        <!--- carousel optionnel
         <section class="section my-5 section_wish" >
             <h2 class="mb-4">Vous pourriez aimer egalement :</h2>
             <div id="row_wish" class="row_wish p-3">      
@@ -36,7 +40,9 @@
         </section>        
             ------->       
     </main>
+    <!---MAIN--->
 
+    <!--FOOTER-->
     <footer class="footer p-3">
         <h3 class="m-0 pb-3 text-center">Besoin de se tenir au courant des nouveautés? Nous contactez?</h3>
         <div class="text-center">
@@ -46,6 +52,7 @@
             <a href=""><img class="px-1" src="node_modules/bootstrap-icons/envelope-fill.svg" alt="lien mail" title="lien mail"></a>
         </div>       
     </footer>
+    <!--FOOTER-->
 
     <script src="js/services/service_fetchById.js"></script>
     <script src="js/services/service_creationElement.js"></script>

@@ -1,4 +1,8 @@
     // fonction permettant de creer la structure de la page en utilisant des données de l'API.
+    /**
+     * function permettant de creer la structure du body de la page index
+     * @param {*} data 
+     */
     function bodyIndex(data) {
         data.forEach((i, item) => {           
             const section = document.getElementById("section_article");

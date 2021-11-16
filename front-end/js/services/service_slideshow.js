@@ -6,13 +6,13 @@
 
 
 
-
+//fonction test pour le carousel optionnel /!\
 
 
 // creation of a slideshow of 2 blocks on the suggestion max-width: 991px
 
-var slideIndex = [1,1];
-/* Class the members of each slideshow group with different CSS classes */
+/*var slideIndex = [1,1];
+//Class the members of each slideshow group with different CSS classes
 var slideId = ["block_wish1", "block_wish2"]
 showSlides(1, 0);
 showSlides(1, 1);
@@ -30,4 +30,4 @@ function showSlides(n, no) {
     x[i].style.display = "none";
   }
   x[slideIndex[no]-1].style.display = "block";
-}
+}*/

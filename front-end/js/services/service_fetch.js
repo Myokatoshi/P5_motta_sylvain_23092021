@@ -1,7 +1,7 @@
 /**
- * 
+ * fonction permettant de récuperer les données de l'API
  * @param fetch
- * @returns renvoi les données de l'API
+ * @returns myfetchInit //renvoi les données de l'API
  */
 function fetchInit() {
     let myfetchInit = fetch("http://localhost:3000/api/teddies")

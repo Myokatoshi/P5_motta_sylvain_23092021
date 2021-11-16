@@ -1,9 +1,12 @@
+//importation du fichier style
 @import "style.scss";
 
+//taille minimale du body de la page
 .container {
     min-height: 675px;
 }
 
+//strucutre de ka section produit
 #section_product {
     display: flex;
     flex-direction: row;
@@ -12,6 +15,7 @@
     }
 }
 
+//structure du block photo de l'article
 .block_product {
     padding-right: 15px;
     &_picture {
@@ -26,6 +30,7 @@
     }    
 }
 
+//strucutre du block infos de l'article
 .block_content {
     display: grid;
     grid-template-columns: 1 1;
@@ -37,6 +42,8 @@
     border-radius: 20px;
     font-size: 20px;
 }
+
+//grid template des differents éléments du block infos----//
 
 .teddy_name {
     grid-column: 1/3;
@@ -69,8 +76,10 @@
     font-size: 25px;
     border-radius: 30px;
 }
+//----FIN---//
 
-.row_wish {
+//structure du carousel optionnel------//
+/*.row_wish {
     display: flex;
     align-self: center;
     justify-self: center;
@@ -113,4 +122,5 @@
     left: 0;
     width: 100%;
     height: 100%;
-}
+}*/
+//-----FIN---//

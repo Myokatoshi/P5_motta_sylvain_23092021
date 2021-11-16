@@ -10,7 +10,7 @@ window.onload = () => {
         addProductAtCart(i);
                 
     });
-    //fonction pour récuperer les données de l'API.
+    //fonction pour récuperer les données de l'API pour le carousel optionnel//
     /*fetchInit().then((data) => {
         //fonction pour afficher les autres produits en suggestion.
         bodyWish(data, id);

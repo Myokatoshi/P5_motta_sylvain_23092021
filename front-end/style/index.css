@@ -11338,15 +11338,8 @@ button:focus, button:hover {
   background-color: #f2ceff;
 }
 
-.oriteddies {
-  border: 2px solid black;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #555555;
-  margin: 20px 0 20px 0;
-}
-
 #section_article {
-  min-height: 600px;
+  min-height: 675px;
   display: flex;
   flex-direction: column;
 }

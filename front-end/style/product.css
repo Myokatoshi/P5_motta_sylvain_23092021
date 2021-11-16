@@ -11412,50 +11412,47 @@ button:focus, button:hover {
   border-radius: 30px;
 }
 
-.row_wish {
-  display: flex;
-  align-self: center;
-  justify-self: center;
-  align-items: center;
-  justify-content: space-around;
-  border: 2px solid black;
-  border-radius: 30px;
+/*.row_wish {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid black;
+    border-radius: 30px;
 }
 
 .block_wish {
-  position: relative;
-  border: 2px solid black;
-  box-shadow: 0 0 10px #555555;
-  border-radius: 30px;
-}
-@media screen and (max-width: 1199px) {
-  .block_wish_title {
-    font-size: 20px;
-  }
-}
-.block_wish:hover {
-  border-color: #f2ceff;
-  transition: 300ms ease-in-out;
-}
-.block_wish_image {
-  width: 100%;
-  height: 180px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border: 3px solid #c9b2ff;
-  box-shadow: 0 0 10px #555555;
-  border-radius: 20px;
-}
-@media screen and (max-width: 1199px) {
-  .block_wish_image {
-    height: 120px;
-  }
+    position: relative;
+    border: 2px solid black;
+    box-shadow: 0 0 10px #555555;
+    border-radius: 30px;
+    &_title {    
+        @media screen and (max-width: 1199px) {
+            font-size: 20px;
+        }
+    }
+    &:hover {
+        border-color: #f2ceff;
+        transition: 300ms ease-in-out;
+    }
+    &_image {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border: 3px solid #c9b2ff;
+        box-shadow: 0 0 10px #555555;
+        border-radius: 20px;
+        @media screen and (max-width: 1199px) {
+            height: 120px;
+        }
+    }
 }
 
 .product-link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}/*# sourceMappingURL=product.css.map */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}*//*# sourceMappingURL=product.css.map */

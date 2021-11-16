@@ -1,9 +1,12 @@
+//importation du fichier style
 @import "style.scss";
 
+//taille minimale du body de la page
 #section_order {
     min-height: 675px;
 }
 
+//mise en forme du récapitulatif
 .recap_order {
     @media screen and (min-width: 1400px) {
         width: 65vw;
@@ -13,12 +16,14 @@
     border-radius: 10px;
 }
 
+//mise en forme de "Votre commande a bien été confirmé !"
 .text-confirm {
     font-weight: bold;
     font-size: 25px;
     color: #693ecc;
 }
 
+//mise en forme du texte récapitulatif
 .font-text {
     font-size: 20px;
 }

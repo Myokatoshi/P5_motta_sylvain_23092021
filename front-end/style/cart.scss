@@ -1,9 +1,12 @@
+//importation du fichier style
 @import "style.scss";
 
+//taille minimale du body de la page
 #section_basket {
     min-height: 675px;
 }
 
+//structure du block "mon panier"
 .block_basket {
     display: flex;
     align-items: center;
@@ -16,6 +19,7 @@
     }
 }
 
+//structure du block contenant le tableau des articles
 .content_basket, .content_form {
     background-color: #f2ceff;
     border: 2px solid #f2ceff;
@@ -27,7 +31,7 @@
     }
 }
 
-
+//gestion du tableau en responsive//
 /*@media screen and (max-width: 575px) {
     #table_cart {
         display: grid;
@@ -49,8 +53,8 @@
     } 
 }*/
 
-
-.row_wish {
+//structure du carousel optionnel------//
+/*.row_wish {
     display: flex;
     align-self: center;
     justify-self: center;
@@ -85,8 +89,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-}
+}*/
+//-----FIN---//
 
+//mise en forme du bouton qui supprime une ligne d'articles
 .btn-trash {
     border: none;
     &:hover {
@@ -103,6 +109,7 @@
 
 }
 
+//mise en forme du bouton qui vide le panier
 #btn-delete-cart {
     width: 25px;
     &:hover {
@@ -110,12 +117,14 @@
     }        
 }
 
+//positionnement du contenu dans le tableau
 .justify-content-td {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+//mise en forme des boutons - et +
 .btn-quantity-choice {
     width: 20px;
     height: 20px;
@@ -124,6 +133,7 @@
     align-items: center;
 }
 
+//mise en forme du formulaire
 .order-form {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -214,6 +224,7 @@
     }
 }
 
+//mise en forme du bouton "valider la commande"
 #btn_order {
     display: flex;
     justify-self: center;
@@ -229,11 +240,13 @@
     }
 }
 
+//mise en forme des labels de champs du formulaire
 .typo-text-form {
     color: #444444;
     font-weight: bold;
 }
 
+//code couleur pour la validation des champs
 .typo-input {
     &:valid {
         border-color: green;
