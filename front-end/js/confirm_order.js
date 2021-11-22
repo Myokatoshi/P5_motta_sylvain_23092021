@@ -18,8 +18,6 @@ const bodyOrderConfirm = `
 </div>
 `;
 
-//positionOrderConfirm.innerHTML = bodyOrderConfirm;
-
 /**
  * fonction permettant du supprimer des éléments du localstorage
  * @param {*} key 
