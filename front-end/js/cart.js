@@ -302,9 +302,10 @@ btn_send_form.addEventListener("click", (bsf) => {
     promiseSaveOnServer.then((order) => {
         console.log(order);
         localStorage.setItem("orderId", order.orderId);
+        window.location.href = "confirm_order.html";
     });
 
-    window.location.href = "confirm_order.html";
+    
 });
 
 const dataLocalStorage = localStorage.getItem("formValues");

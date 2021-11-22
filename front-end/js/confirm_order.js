@@ -18,13 +18,9 @@ const bodyOrderConfirm = `
 </div>
 `;
 
-/**
- * fonction permettant du supprimer des éléments du localstorage
- * @param {*} key 
- */
-function deleteKeyLocalStorage(key) {
-    localStorage.removeItem(key);
-};
+positionOrderConfirm.innerHTML = bodyOrderConfirm;
+
+
 
 //au rechargement de la page, l'utilisateur est reconduit à la page index
 
@@ -39,4 +35,11 @@ else {
     deleteKeyLocalStorage("orderId");
 }
 
+/**
+ * fonction permettant du supprimer des éléments du localstorage
+ * @param {*} key 
+ */
+ function deleteKeyLocalStorage(key) {
+    localStorage.removeItem(key);
+};
 
