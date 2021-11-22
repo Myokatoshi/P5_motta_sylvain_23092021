@@ -18,7 +18,7 @@ const bodyOrderConfirm = `
 </div>
 `;
 
-positionOrderConfirm.innerHTML = bodyOrderConfirm;
+//positionOrderConfirm.innerHTML = bodyOrderConfirm;
 
 /**
  * fonction permettant du supprimer des éléments du localstorage
@@ -28,12 +28,17 @@ function deleteKeyLocalStorage(key) {
     localStorage.removeItem(key);
 };
 
-//au chargement de la page on vide les éléments ci-dessous du localstorage
-deleteKeyLocalStorage("totalPrice");
-deleteKeyLocalStorage("product");
-deleteKeyLocalStorage("orderId");
-
 //au rechargement de la page, l'utilisateur est reconduit à la page index
+
 if(orderId == null || totalPrice == null) {
-window.location.href ="index.html";
+    window.location.href ="index.html";
 }
+else {
+    positionOrderConfirm.innerHTML = bodyOrderConfirm;
+    //au chargement de la page on vide les éléments ci-dessous du localstorage
+    deleteKeyLocalStorage("totalPrice");
+    deleteKeyLocalStorage("product");
+    deleteKeyLocalStorage("orderId");
+}
+
+
